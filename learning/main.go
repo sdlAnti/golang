@@ -13,22 +13,14 @@ func main() {
 	dig2save = dig2
 	dig1reverse = 0
 	if dig1 <= 10000 && dig2 <= 10000 {
-		for dig1 > 0 {
-			dig1reverse *= 10
-			diga = dig1 % 10
-			dig1 /= 10
-			dig1reverse += diga
+		for ; dig1 > 0; dig1 /= 10 {
+			dig1reverse = dig1reverse*10 + dig1%10
 		}
-		dig1 = dig1reverse
-		for dig1 > 0 {
-			diga = dig1 % 10
-			dig1 /= 10
+		for ; dig1reverse > 0; dig1reverse /= 10 {
+			diga = dig1reverse % 10
 			dig2 = dig2save
-			//fmt.Println("digit a = ", diga)
-			for dig2 > 0 {
+			for ; dig2 > 0; dig2 /= 10 {
 				digb = dig2 % 10
-				dig2 /= 10
-				//fmt.Println("digit b = ", digb)
 				if diga == digb {
 					fmt.Print(diga, " ")
 				}
